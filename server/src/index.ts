@@ -1,7 +1,11 @@
-const express = require("express");
-const PORT = 8080;
+import { Prisma, PrismaClient } from "@prisma/client";
+import express from "express";
 
+// const express = require("express");
+// const prisma
+const PORT = 8080;
 const app = express();
+const prisma = new PrismaClient();
 
 // Define a route handler for the root endpoint
 app.get("/", (req, res) => {
