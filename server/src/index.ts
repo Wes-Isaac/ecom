@@ -1,9 +1,12 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import express from "express";
+import cors from "cors";
 
 const PORT = 8080;
 const app = express();
 const prisma = new PrismaClient();
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -79,11 +82,6 @@ app.get("/search-product", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Failed to search products." });
   }
-});
-
-// Define a route handler for the root endpoint
-app.get("/", (req, res) => {
-  res.send("Hello World! This is your basic Node.js API endpoint.");
 });
 
 // Start the Express server
