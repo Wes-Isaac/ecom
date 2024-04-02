@@ -81,7 +81,6 @@ app.put("/update-product/:id", async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    console.log(error);
     res.json({
       error: `product with ID ${id} does not exist in the database`,
     });
